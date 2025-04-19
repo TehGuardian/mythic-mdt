@@ -22,7 +22,7 @@ function RegisterBadgeCallbacks()
 			and IsPedOnFoot(LocalPlayer.state.ped)
 		then
 			StartLicenseAnim()
-			Citizen.Wait(2500)
+			Wait(2500)
 
 			cb(true)
 		else
@@ -40,7 +40,7 @@ function RegisterBadgeCallbacks()
 			and IsPedOnFoot(LocalPlayer.state.ped)
 		then
 			StartLicenseAnim()
-			Citizen.Wait(2500)
+			Wait(2500)
 
 			cb(true)
 		else

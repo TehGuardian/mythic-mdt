@@ -23,7 +23,7 @@ function RegisterEACallbacks()
 			EmergencyAlerts:DisableTracker(source, false)
 
 			Jobs.Duty:Off(source, false, true)
-			Citizen.Wait(250)
+			Wait(250)
 			Jobs.Duty:On(source, 'police', true)
 
 			cb(true)
