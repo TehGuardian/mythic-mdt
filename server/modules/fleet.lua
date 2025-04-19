@@ -21,7 +21,6 @@ AddEventHandler('MDT:Server:RegisterCallbacks', function()
             Owner = 1,
             Storage = 1,
             GovAssigned = 1,
-            Storage = 1,
             RegistrationDate = 1,
             RegisteredPlate = 1,
           }
