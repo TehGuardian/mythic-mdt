@@ -399,7 +399,7 @@ _qualifications = {
 			job = 'police',
 		}
 	},
-	['PD_BEANBAG'] = {
+	['PD_SHOTGUN'] = {
 		name = 'PD Shotgun',
 		restrict = {
 			weapon = true,
