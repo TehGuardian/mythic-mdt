@@ -247,19 +247,15 @@ CREATE TABLE IF NOT EXISTS `mdt_reports_people` (
 CREATE TABLE IF NOT EXISTS `mdt_warrants` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `state` varchar(50) NOT NULL DEFAULT 'active',
-  `title` varchar(1024) NOT NULL,
+  `title` varchar(1024) NOT NULL DEFAULT '',
   `report` int(10) NOT NULL,
   `suspect` int(10) NOT NULL,
   `notes` longtext NOT NULL,
-  `creatorSID` int(11) NOT NULL,
-  `creatorName` varchar(255) NOT NULL DEFAULT '',
+  `creatorSID` int(11) unsigned zerofill NOT NULL,
+  `creatorName` varchar(255) DEFAULT '',
   `creatorCallsign` varchar(255) NOT NULL DEFAULT '',
-  `issued` datetime NOT NULL DEFAULT current_timestamp(),
+  `issued` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `expires` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `suspect` (`suspect`),
-  KEY `report` (`report`),
-  KEY `expires` (`expires`),
-  CONSTRAINT `FK1_mdt_warrants` FOREIGN KEY (`report`) REFERENCES `mdt_reports` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `FK2_mdt_warrants` FOREIGN KEY (`suspect`) REFERENCES `mdt_reports_people` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+  KEY `report_suspect_expires` (`report`,`suspect`,`expires`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
