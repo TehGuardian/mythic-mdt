@@ -27,7 +27,7 @@ AddEventHandler('MDT:Server:RegisterCallbacks', function()
         }
       }, function(success, results)
         if success then
-          for k, v in ipairs(results) do
+          for _, v in ipairs(results) do
             if v.Storage then
               if v.Storage.Type == 0 then
                 v.Storage.Name = Vehicles.Garages:Impound().name
@@ -57,7 +57,7 @@ AddEventHandler('MDT:Server:RegisterCallbacks', function()
 
     if hasPerms and loggedInJob and data.vehicle and data.assigned then
       local ass = {}
-      for k,v in ipairs(data.assigned) do
+      for _,v in ipairs(data.assigned) do
         table.insert(ass, {
           SID = v.SID,
           First = v.First,

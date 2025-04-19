@@ -23,25 +23,25 @@ _MDT.Reports = {
             })
 
             local reports = {}
-            for k, v in ipairs(eRes) do
+            for _, v in ipairs(eRes) do
                 table.insert(reports, v.report)
             end
 
             qry = qry .. 'AND id IN (?)'
             table.insert(params, table.concat(reports, ','))
         else
-            -- suspect: 
+            -- suspect:
             if rType == 0 and term and term:sub(1, 9) == 'suspect: ' then
                 local reports = {}
                 local reportsWithSuspect = MySQL.query.await('SELECT report FROM mdt_reports_people WHERE type = ? AND SID = ?', {
                     'suspect',
                     term:sub(10, #term)
                 })
-    
-                for k, v in ipairs(reportsWithSuspect) do
+
+                for _, v in ipairs(reportsWithSuspect) do
                     table.insert(reports, v.report)
                 end
-    
+
                 qry = qry .. 'AND id IN (?) '
                 table.insert(params, table.concat(reports, ','))
             elseif #term > 0 then
@@ -49,21 +49,21 @@ _MDT.Reports = {
                 table.insert(params, term)
                 table.insert(params, term)
                 table.insert(params, term)
-    
-                
+
+
                 if #term >= 3 then
                     qry = qry .. ' OR title LIKE ? OR creatorName LIKE ?'
                     local ffs = '%' .. term .. '%'
                     table.insert(params, ffs)
                     table.insert(params, ffs)
                 end
-    
+
                 qry = qry .. ')'
             end
         end
 
         qry = qry .. ' ORDER BY created DESC LIMIT ? OFFSET ?'
-        
+
         table.insert(params, perPage + 1) -- Limit
         if page > 1 then
             table.insert(params, perPage * (page - 1)) -- Offset
@@ -85,7 +85,7 @@ _MDT.Reports = {
         }
 	end,
     SearchEvidence = function(self, term)
-        
+
 	end,
 	View = function(self, id)
         local report = MySQL.single.await('SELECT * FROM mdt_reports WHERE id = ?', {
@@ -103,9 +103,9 @@ _MDT.Reports = {
 
             report.suspects = {}
             report.primaries = {}
-            report.people = {} 
+            report.people = {}
 
-            for k, v in ipairs(people) do
+            for _, v in ipairs(people) do
                 if v.type == 'suspect' then
                     v.charges = json.decode(v.charges)
                     v.Licenses = json.decode(v.Licenses)
@@ -260,7 +260,7 @@ _MDT.Reports = {
             }
         }
 
-        for k,v in ipairs(report.changes) do
+        for _,v in ipairs(report.changes) do
             if v.type == 'evidence' then
                 if v.mode == 'add' then
                     table.insert(transaction, {

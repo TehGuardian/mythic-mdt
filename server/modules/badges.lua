@@ -14,7 +14,7 @@ AddEventHandler('MDT:Server:RegisterCallbacks', function()
                     local departmentData = false
                     local titleData = false
                     if officer.Jobs then
-                        for k, v in ipairs(officer.Jobs) do
+                        for _, v in ipairs(officer.Jobs) do
                             if v.Id == data.JobId and v.Workplace then
                                 departmentData = v.Workplace.Id
                                 departmentName = v.Workplace.Name

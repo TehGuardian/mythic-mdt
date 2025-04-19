@@ -367,7 +367,7 @@ _pdAlerts = {
 		EmergencyAlerts:SendOnDutyEvent('EmergencyAlerts:Client:UpdateMembers', emergencyAlertsData)
 	end,
 	SendOnDutyEvent = function(self, event, data)
-		for k, v in pairs(emergencyAlertsData) do
+		for k, _ in pairs(emergencyAlertsData) do
 			TriggerClientEvent(event, k, data)
 		end
 	end,

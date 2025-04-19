@@ -1,6 +1,6 @@
 RegisterNetEvent('EmergencyAlerts:Client:UpdateMembers', function(data)
 	local fuckfest = {}
-	for k,v in pairs(data) do
+	for _,v in pairs(data) do
 		if v ~= nil then
 			table.insert(fuckfest, v)
 		end

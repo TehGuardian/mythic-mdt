@@ -46,7 +46,7 @@ RegisterNetEvent('Job:Client:DutyChanged', function(state)
                 table.remove(_alertBlips, k)
             end
 
-            for k, v in pairs(_specialBlips) do
+            for k, _ in pairs(_specialBlips) do
                 Blips:Remove(string.format('etb-%s', k))
             end
 
@@ -72,11 +72,11 @@ RegisterNetEvent('EmergencyAlerts:Client:TrackerBlip', function(job, uId, title,
                     false,
                     flashing
                 )
-    
+
                 if alpha then
                     SetBlipAlpha(blip, alpha)
                 end
-        
+
                 _specialBlips[uId] = blip
             end
         elseif _specialBlips[uId] then

@@ -3,7 +3,7 @@ function RegisterEACallbacks()
 		local char = Fetch:Source(source):GetData('Character')
 		if char then
 			local tState = Player(target).state
-			local targetChar = Fetch:CharacterSource(target)
+			local targetChar = Fetch:Source(target):GetData('Character')
 			if targetChar and tState and tState.onDuty == 'police' and not tState.trackerDisabled then
 				Player(target).state.trackerDisabled = true
 				EmergencyAlerts:DisableTracker(target, true)

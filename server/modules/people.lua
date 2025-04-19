@@ -133,7 +133,7 @@ _MDT.People = {
 				local ownedBusinesses = {}
 
 				if char.Jobs then
-					for k, v in ipairs(char.Jobs) do
+					for _, v in ipairs(char.Jobs) do
 						local jobData = Jobs:Get(v.Id)
 						if jobData.Owner and jobData.Owner == char.SID then
 							table.insert(ownedBusinesses, v.Id)
@@ -153,7 +153,7 @@ _MDT.People = {
 				})
 
 				local convictions = {}
-				for k,v in ipairs(chargesData) do
+				for _,v in ipairs(chargesData) do
 					local c = json.decode(v.charges)
 					for _, ch in ipairs(c) do
 						table.insert(convictions, ch)

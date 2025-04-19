@@ -309,9 +309,6 @@ RegisterNetEvent('EmergencyAlerts:Client:Close', function()
 	EmergencyAlerts:Close()
 end)
 
-RegisterNetEvent(
-	'EmergencyAlerts:Client:Add',
-	function(code, title, type, location, extra, isPanic, blip, styleOverride, isArea, camera)
-		EmergencyAlerts:Create(code, title, type, location, extra, isPanic, blip, styleOverride, isArea, camera)
-	end
-)
+RegisterNetEvent('EmergencyAlerts:Client:Add',function(code, title, type, location, extra, isPanic, blip, styleOverride, isArea, camera)
+	EmergencyAlerts:Create(code, title, type, location, extra, isPanic, blip, styleOverride, isArea, camera)
+end)

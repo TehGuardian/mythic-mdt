@@ -414,7 +414,7 @@ end)
 
 RegisterNetEvent('EmergencyAlerts:Server:PursuitModeChange', function(pursuitMode)
 	local src = source
-	local char = Fetch:CharacterSource(src)
+	local char = Fetch:Source(src):GetData('Character')
 	if char and Player(src).state.onDuty == 'police' and char:GetData('Callsign') then
 		EmergencyAlerts:RefreshPursuitMode(char:GetData('Callsign'), pursuitMode)
 	end
