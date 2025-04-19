@@ -5,7 +5,7 @@ export default {
 		/// #endif
 
 		/* eslint-disable no-unreachable */
-		return fetch(`https://${process.env.REACT_RESOURCE_NAME}/${event}`, {
+		return fetch(`https://mythic-mdt/${event}`, {
 			method: 'post',
 			headers: {
 				'Content-type': 'application/json; charset=UTF-8',

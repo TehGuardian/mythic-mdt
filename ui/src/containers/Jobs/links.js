@@ -29,33 +29,28 @@ export default (job, workplace) => {
 
 const systemAdmin = [
 	{
-		icon: ['fas', 'laptop'],
+		icon: ['fas', 'terminal'], // was 'square-terminal'
 		label: 'Permissions',
 		path: '/system/gov-permissions',
 		exact: true,
-		restrict: {
-			permission: true,
-		},
+		restrict: { permission: true },
 	},
 	{
-		icon: ['fas', 'laptop'],
+		icon: ['fas', 'terminal'],
 		label: 'Full Roster',
 		path: '/system/gov-roster',
 		exact: true,
-		restrict: {
-			permission: true,
-		},
+		restrict: { permission: true },
 	},
 	{
-		icon: ['fas', 'laptop'],
+		icon: ['fas', 'terminal'],
 		label: 'Charges',
 		path: '/system/charges',
 		exact: true,
-		restrict: {
-			permission: true,
-		},
+		restrict: { permission: true },
 	},
 ];
+
 
 const base = [
 	{
@@ -66,7 +61,7 @@ const base = [
 	},
 	{
 		name: 'warrants',
-		icon: ['fas', 'certificate'],
+		icon: ['fas', 'file-contract'], // was 'file-certificate'
 		label: 'Warrants',
 		path: '/warrants',
 		exact: false,
@@ -79,6 +74,7 @@ const base = [
 		exact: true,
 	},
 ];
+
 
 const pubPrison = [
 	{
@@ -106,14 +102,14 @@ const attorney = [
 	},
 	{
 		name: 'warrants',
-		icon: ['fas', 'certificate'],
+		icon: ['fas', 'file-contract'], // was 'file-certificate'
 		label: 'Warrants',
 		path: '/warrants',
 		exact: false,
 	},
 	{
 		name: 'people',
-		icon: ['fas', 'person'],
+		icon: ['fas', 'user'], // was 'person'
 		label: 'People',
 		path: '/people',
 		submenu: false,
@@ -128,23 +124,25 @@ const attorney = [
 	},
 	{
 		name: 'library',
-		icon: ['fas', 'book'],
+		icon: ['fas', 'book'], // was 'books'
 		label: 'Document Library',
 		path: '/library',
 		exact: true,
 	},
 ];
 
+
 const police = [
 	{
 		name: 'home',
+		label: 'Home',
 		icon: ['fas', 'house'],
 		path: '/',
 		exact: true,
 	},
 	{
 		name: 'roster',
-		icon: ['fas', 'building-shield'],
+		icon: ['fas', 'people-group'],
 		label: 'Roster',
 		path: '/roster',
 		exact: false,
@@ -159,7 +157,7 @@ const police = [
 	},
 	{
 		name: 'warrants',
-		icon: ['fas', 'certificate'],
+		icon: ['fas', 'file-contract'],
 		label: 'Warrants',
 		path: '/warrants',
 		exact: false,
@@ -211,7 +209,7 @@ const police = [
 		exact: true,
 	},
 	{
-		icon: ['fas', 'car'],
+		icon: ['fas', 'car-on'],
 		label: 'Fleet',
 		path: '/fleet-manager',
 		exact: false,
@@ -220,7 +218,7 @@ const police = [
 		},
 	},
 	{
-		icon: ['fas', 'users'],
+		icon: ['fas', 'crown'],
 		label: 'Permissions',
 		path: '/admin/permissions',
 		exact: false,
@@ -255,14 +253,14 @@ const doj = [
 	},
 	{
 		name: 'warrants',
-		icon: ['fas', 'certificate'],
+		icon: ['fas', 'file-contract'], // was 'file-certificate'
 		label: 'Warrants',
 		path: '/warrants',
 		exact: false,
 	},
 	{
 		name: 'people',
-		icon: ['fas', 'person'],
+		icon: ['fas', 'user'], // was 'person'
 		label: 'People',
 		path: '/people',
 		submenu: false,
@@ -270,7 +268,7 @@ const doj = [
 	},
 	{
 		name: 'vehicles',
-		icon: ['fas', 'car'],
+		icon: ['fas', 'car'], // was 'cars'
 		label: 'Vehicles',
 		path: '/vehicles',
 		submenu: false,
@@ -301,19 +299,17 @@ const doj = [
 	},
 	{
 		name: 'library',
-		icon: ['fas', 'book'],
+		icon: ['fas', 'book'], // was 'books'
 		label: 'Document Library',
 		path: '/library',
 		exact: true,
 	},
 	{
-		icon: ['fas', 'users'],
+		icon: ['fas', 'crown'], // was 'user-crown'
 		label: 'Permissions',
 		path: '/admin/permissions',
 		exact: false,
-		restrict: {
-			permission: 'DOJ_JUDGE',
-		},
+		restrict: { permission: 'DOJ_JUDGE' },
 	},
 	...systemAdmin,
 ];
@@ -342,14 +338,14 @@ const districtattorney = [
 	},
 	{
 		name: 'warrants',
-		icon: ['fas', 'certificate'],
+		icon: ['fas', 'file-contract'], // was 'file-certificate'
 		label: 'Warrants',
 		path: '/warrants',
 		exact: false,
 	},
 	{
 		name: 'people',
-		icon: ['fas', 'person'],
+		icon: ['fas', 'user'], // was 'person'
 		label: 'People',
 		path: '/people',
 		submenu: false,
@@ -357,7 +353,7 @@ const districtattorney = [
 	},
 	{
 		name: 'vehicles',
-		icon: ['fas', 'car'],
+		icon: ['fas', 'car'], // was 'cars'
 		label: 'Vehicles',
 		path: '/vehicles',
 		submenu: false,
@@ -388,22 +384,21 @@ const districtattorney = [
 	},
 	{
 		name: 'library',
-		icon: ['fas', 'book'],
+		icon: ['fas', 'book'], // was 'books'
 		label: 'Document Library',
 		path: '/library',
 		exact: true,
 	},
 	{
-		icon: ['fas', 'users'],
+		icon: ['fas', 'crown'], // was 'user-crown'
 		label: 'Permissions',
 		path: '/admin/permissions',
 		exact: false,
-		restrict: {
-			permission: 'GOV_DA',
-		},
+		restrict: { permission: 'GOV_DA' },
 	},
 	...systemAdmin,
 ];
+
 
 const medical = [
 	{
@@ -429,39 +424,36 @@ const medical = [
 	},
 	{
 		name: 'people',
-		icon: ['fas', 'person'],
+		icon: ['fas', 'user'], // was 'person'
 		label: 'People',
 		path: '/people',
 		submenu: false,
 		exact: false,
 	},
 	{
-		icon: ['fas', 'car'],
+		icon: ['fas', 'car'], // was 'cars'
 		label: 'Fleet Manager',
 		path: '/fleet-manager',
 		exact: false,
-		restrict: {
-			permission: 'FLEET_MANAGEMENT',
-		},
+		restrict: { permission: 'FLEET_MANAGEMENT' },
 	},
 	{
 		name: 'library',
-		icon: ['fas', 'book'],
+		icon: ['fas', 'book'], // was 'books'
 		label: 'Document Library',
 		path: '/library',
 		exact: true,
 	},
 	{
-		icon: ['fas', 'users'],
+		icon: ['fas', 'crown'], // was 'user-crown'
 		label: 'Permissions',
 		path: '/admin/permissions',
 		exact: false,
-		restrict: {
-			permission: 'SAFD_HIGH_COMMAND',
-		},
+		restrict: { permission: 'SAFD_HIGH_COMMAND' },
 	},
 	...systemAdmin,
 ];
+
 
 const doc = [
 	{
@@ -487,27 +479,25 @@ const doc = [
 	},
 	{
 		name: 'prisoners',
-		icon: ['fas', 'handcuffs'],
+		icon: ['fas', 'user-lock'], // was 'handcuffs'
 		label: 'Inmate Management',
 		path: '/prisoners',
 		exact: false,
 	},
 	{
 		name: 'people',
-		icon: ['fas', 'person'],
+		icon: ['fas', 'user'], // was 'person'
 		label: 'People',
 		path: '/people',
 		submenu: false,
 		exact: false,
 	},
 	{
-		icon: ['fas', 'car'],
+		icon: ['fas', 'car'], // was 'cars'
 		label: 'Fleet Manager',
 		path: '/fleet-manager',
 		exact: false,
-		restrict: {
-			permission: 'FLEET_MANAGEMENT',
-		},
+		restrict: { permission: 'FLEET_MANAGEMENT' },
 	},
 	{
 		name: 'penalcode',
@@ -518,19 +508,18 @@ const doc = [
 	},
 	{
 		name: 'library',
-		icon: ['fas', 'book'],
+		icon: ['fas', 'book'], // was 'books'
 		label: 'Document Library',
 		path: '/library',
 		exact: true,
 	},
 	{
-		icon: ['fas', 'users'],
+		icon: ['fas', 'crown'], // was 'user-crown'
 		label: 'Permissions',
 		path: '/admin/permissions',
 		exact: false,
-		restrict: {
-			permission: 'DOC_HIGH_COMMAND',
-		},
+		restrict: { permission: 'DOC_HIGH_COMMAND' },
 	},
 	...systemAdmin,
 ];
+
