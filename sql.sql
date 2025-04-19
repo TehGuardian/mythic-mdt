@@ -291,3 +291,14 @@ CREATE TABLE IF NOT EXISTS `firearms_flags` (
   PRIMARY KEY (`id`),
   KEY `serial` (`serial`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+
+CREATE TABLE IF NOT EXISTS `character_parole` (
+  `SID` int(11) NOT NULL,
+  `end` datetime NOT NULL,
+  `total` int(11) NOT NULL DEFAULT 0,
+  `parole` int(11) NOT NULL DEFAULT 0,
+  `sentence` int(11) NOT NULL DEFAULT 0,
+  `fine` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`SID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
