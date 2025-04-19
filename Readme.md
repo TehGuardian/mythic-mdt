@@ -1,9 +1,7 @@
+# Mythic-MDT
+-- Add to Server/Component.lua
+# Add
 
-
-
-
--- Add to chat resource component.lua
--- Add to CHAT.Send = {
 		Dispatch411 = function(self, message)
 			for k, v in ipairs(GetPlayers()) do
 				local duty = Player(v).state.onDuty
@@ -30,11 +28,7 @@
 		end,
 
 
-
-
-
-
--- Like this in your component.lua
+# Example
 		Dispatch411 = function(self, message)
 			for k, v in ipairs(GetPlayers()) do
 				local duty = Player(v).state.onDuty
@@ -66,3 +60,8 @@
 				message = message,
 			})
 		end,
+
+
+
+
+
