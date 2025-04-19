@@ -82,7 +82,7 @@ emergencyAlertsUnits = {}
 
 _pdAlerts = {
 	Create = function(self, code, title, type, location, description, isPanic, blip, styleOverride, isArea, camera)
-		for k, v in pairs(emergencyAlertsData) do
+		for _, v in pairs(emergencyAlertsData) do
 			if v.AlertPermissions[_alertsPermMap[type]] then
 				TriggerClientEvent(
 					'EmergencyAlerts:Client:Add',
@@ -127,7 +127,7 @@ _pdAlerts = {
 			return false, nil
 		end,
 		BreakOff = function(self, primary, unit, skipAddingBack) -- Removes the Unit from the Primary
-			for k, v in ipairs(emergencyAlertsUnits) do
+			for _, v in ipairs(emergencyAlertsUnits) do
 				if v.primary == primary or not primary then
 					for uKey, u in ipairs(v.units) do
 						if u == unit then
