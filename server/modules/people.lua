@@ -222,9 +222,6 @@ _MDT.People = {
 					target:SetData(key, value)
 				end
 
-				if key == 'Mugshot' then
-					Inventory:UpdateGovIDMugshot(id, value)
-				end
 			end
 			p:resolve(success)
 		end)
