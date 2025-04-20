@@ -1,33 +1,34 @@
 function RegisterChatCommands()
-	Chat:RegisterAdminCommand('setcallsign', function(source, args, rawCommand)
+	Chat:RegisterAdminCommand("setcallsign", function(source, args, rawCommand)
 		local newCallsign = args[2]
-		local target = Fetch:SID(tonumber(args[1]))
-		if target ~= nil then
+		local tPly = Fetch:SID(tonumber(args[1]))
+		if tPly ~= nil then
+			local target = tPly:GetData("Character")
 			if
-				Jobs.Permissions:HasJob(target:GetData('Source'), 'police')
-				or Jobs.Permissions:HasJob(target:GetData('Source'), 'ems')
+				Jobs.Permissions:HasJob(tPly:GetData("Source"), "police")
+				or Jobs.Permissions:HasJob(tPly:GetData("Source"), "ems")
 			then
-				if MDT.People:Update(-1, target:GetData('SID'), 'Callsign', newCallsign) then
-					Chat.Send.System:Single(source, 'Updated Callsign')
+				if MDT.People:Update(-1, target:GetData("SID"), "Callsign", newCallsign) then
+					Chat.Send.System:Single(source, "Updated Callsign")
 				else
-					Chat.Send.System:Single(source, 'Error Updating Callsign')
+					Chat.Send.System:Single(source, "Error Updating Callsign")
 				end
 			else
-				Chat.Send.System:Single(source, 'Target is not Emergency Personnel')
+				Chat.Send.System:Single(source, "Target is not Emergency Personnel")
 			end
 		else
-			Chat.Send.System:Single(source, 'Invalid State ID')
+			Chat.Send.System:Single(source, "Invalid State ID")
 		end
 	end, {
-		help = 'Assign a callsign to an emergency worker',
+		help = "Assign a callsign to an emergency worker",
 		params = {
 			{
-				name = 'Target',
-				help = 'State ID',
+				name = "Target",
+				help = "State ID",
 			},
 			{
-				name = 'Callsign',
-				help = 'The callsign you want to assign to the player. This must be unique',
+				name = "Callsign",
+				help = "The callsign you want to assign to the player. This must be unique",
 			},
 		},
 	}, 2)
