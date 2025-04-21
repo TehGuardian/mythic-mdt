@@ -31,7 +31,7 @@ import { useSelector } from 'react-redux';
 
 import { usePermissions } from '../../hooks';
 
-const VehicleIcons = ['car-side', 'ship', 'plane-engines'];
+const VehicleIcons = ['car', 'ship', 'plane'];
 
 import { ReportTypes } from '../../data';
 
