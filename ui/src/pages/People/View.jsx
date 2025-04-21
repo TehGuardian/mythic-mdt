@@ -536,7 +536,7 @@ export default ({ }) => {
                                 Sex: {person.data.Gender ? 'Female' : 'Male'}
                             </Typography>
                             <Typography variant="h6">
-                                DOB: {moment(person.data.DOB).format('LL')}
+                                DOB: {moment(person.data.DOB * 1000).format('LL')}
                             </Typography>
                         </Grid>
                     </Grid>

@@ -76,7 +76,7 @@ export default ({ person }) => {
 				<Grid item xs={3}>
 					<ListItemText
 						primary="Date of Birth"
-						secondary={moment(person.DOB).format('LL')}
+						secondary={moment(person.DOB * 1000).format('LL')}
 					/>
 				</Grid>
 			</Grid>
