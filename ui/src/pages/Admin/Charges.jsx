@@ -150,22 +150,22 @@ export default () => {
 
 		try {
 			let res = await (
-				await Nui.send(selected.id ? 'Update' : 'Create', {
+				await Nui.send(selected._id ? 'Update' : 'Create', {
 					type: 'charge',
 					doc: selected,
 				})
 			).json();
 
 			if (res) {
-				toast.success(`Charge ${selected.id ? 'Edited' : 'Created'}`);
+				toast.success(`Charge ${selected._id ? 'Edited' : 'Created'}`);
 				setSelected(null);
 			} else
 				toast.error(
-					`Unable to ${selected.id ? 'Edit' : 'Create'} Charge`,
+					`Unable to ${selected._id ? 'Edit' : 'Create'} Charge`,
 				);
 		} catch (err) {
 			console.log(err);
-			toast.error(`Unable to ${selected.id ? 'Edit' : 'Create'} Charge`);
+			toast.error(`Unable to ${selected._id ? 'Edit' : 'Create'} Charge`);
 		}
 	};
 
@@ -304,12 +304,12 @@ export default () => {
 			</div>
 			<Modal
 				open={selected != null}
-				title={`${selected?.id ? 'Edit' : 'Create'} Charge`}
-				submitLang={selected?.id ? 'Edit' : 'Create'}
+				title={`${selected?._id ? 'Edit' : 'Create'} Charge`}
+				submitLang={selected?._id ? 'Edit' : 'Create'}
 				deleteLang="Disable"
 				onSubmit={onSubmit}
 				onClose={() => setSelected(null)}
-			//onDelete={selected?._id ? onDisable : null}
+				//onDelete={selected?._id ? onDisable : null}
 			>
 				{Boolean(selected) ? (
 					<>
